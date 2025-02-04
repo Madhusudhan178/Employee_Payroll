@@ -1,0 +1,102 @@
+package carRent;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Car {
+	private String carId;
+	private String brand;
+	private String model;
+	private double basePricePerDay;
+	private boolean isAvailable;
+
+	public Car(String carId, String brand, String model, double basePricePerDay) {
+		this.carId = carId;
+		this.brand = brand;
+		this.model = model;
+		this.basePricePerDay = basePricePerDay;
+		this.isAvailable=true;
+	}
+
+	public String getCarId() {
+		return carId;
+	}
+	public String getBrand() {
+		return brand;
+	}
+	public String getModel() {
+		return model;
+	}
+	public double calculatePrice(int rentalDays){
+		return basePricePerDay * rentalDays;
+	}
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+	public void rent() {
+		isAvailable=false;
+	}
+	public void returnCar() {
+		isAvailable = true;
+	}
+
+
+}
+class Customer{
+	private String customerId;
+	private String name;
+	private long phoneNumber;
+	public Customer(String customerId, String name, long phoneNumber) {
+		this.customerId = customerId;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+	}
+	public String getCustomerId() {
+		return customerId;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+	
+	
+}
+class Rental{
+	private Car car;
+	private Customer customer;
+	private int days;
+	public Rental(Car car, Customer customer, int days) {
+		super();
+		this.car = car;
+		this.customer = customer;
+		this.days = days;
+	}
+	public Car getCar() {
+		return car;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public int getDays() {
+		return days;
+	}
+}
+
+public class Test {
+	private List<Car> cars;
+	private List<Customer> customers;
+	private List<Rental> rentals;
+	public Test() {
+		cars=new ArrayList<>();
+		customers=new ArrayList<>();
+		rentals=new ArrayList<>();
+		
+	}
+	
+	
+
+}
